@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+
+<bean id ="informe" class="com.sp.emp.Informe"> </bean>
+<bean id="empleado" class="com.sp.emp.Empleado" scope="prototype"></bean>
+<bean id ="dirEmpleado" class="com.sp.emp.DirEmpleado">
+<constructor-arg ref ="informe"></constructor-arg>
+<property name ="nombre" value ="PIL"></property>
+<property name ="email" value ="falso@gmail.com"></property>
+
+</bean>
+<bean id ="gerEmpleado" class ="com.sp.emp.GerEmpleado" init-method="init" destroy-method="destroy">
+<property name ="informe" ref ="informe"></property>
+</bean>
+</beans>
